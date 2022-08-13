@@ -136,3 +136,10 @@ MEDIAFILES = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+#payments details
+
+RAZOR_KEY_ID = "rzp_live_o18mXsoJAbNepu"
+RAZOR_KEY_SECRET = "OHHjv3HWWJhpUMhdu8nSPhZC"

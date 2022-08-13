@@ -1,4 +1,3 @@
-import imp
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from .models import Profile, Temp_User
@@ -9,6 +8,7 @@ import random
 from hashlib import sha256
 from django.contrib import messages
 
+@login_required(login_url="/users/login/")
 def index(request):
     un=request.user
     user=User.objects.get(username=un)
