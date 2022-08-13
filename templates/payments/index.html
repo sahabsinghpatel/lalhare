@@ -26,7 +26,15 @@
               <a class="nav-link active" aria-current="page" href="#">{{ profile.wallet_bal }}</a>
             </li>
             <li class="nav-item">
-              <a href="/payments/add-money/">add money</a>
+
+
+              <form method='get', action='/payments/add-money/'>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Enter ammount</label>
+                  <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="amount">
+                </div>
+                <button type="submit">add money</button>
+              </form>
             </li>
           </ul>
         </div>

@@ -10,6 +10,11 @@ class Profile(models.Model):
     bank_ac = models.CharField(max_length=50, blank=True, default='*************XX')
     bank_ifsc = models.CharField(max_length=20, blank=True)
     varified = models.BooleanField(default=False)
+    def add_money(amount, profile, old_amount):
+        wb=old_amount+amount
+        profile.wallet_bal=wb
+        profile.save()
+        return 0
 
 class Orders(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
