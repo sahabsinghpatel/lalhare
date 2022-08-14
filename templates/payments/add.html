@@ -47,7 +47,7 @@
 		border-radius: 4px;
 		cursor: pointer;
 		padding: 4px 8px;
-		background-color: #ffaaa7;
+		background-color: hsl(106, 100%, 32%);
 		color: white;
 		font-size: 1.2em;
 		font-weight: 600;
@@ -57,13 +57,13 @@
 </head>
 <body>
 	<div class="card">
-	<h1 class="title">Buy Me a Chai </h1>
+	<h1 class="title">Conferm Add Amount of Rs. {{ amrs }}</h1>
 	<small class="muted"
-		>If you like my work, you can support me by donating ₹200</small
+		>This amount will instantly reflected in your wallet</small
 	>
 	<div class="btn_container">
 		<!-- Payment Button -->
-		<button class="btn" id="pay-btn">Donate</button>
+		<button class="btn btn-success" >Confirm</button>
 	</div>
 	</div>
 </body>

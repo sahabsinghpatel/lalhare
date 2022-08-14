@@ -15,12 +15,12 @@ def home(request):
     profile=Profile.objects.get(user=user)
     return render(request, "payments/index.html", context={"profile":profile})
 
-
+@csrf_exempt
 def add_money(request):
     currency = 'INR'
-    amount=request.GET.get('amount')
-    if amount is not None:
-        amount=int(amount)*100
+    amountrs=request.POST.get('amount')
+    if amountrs is not None:
+        amount=int(amountrs)*100
         # Create a Razorpay Order
         razorpay_order = razorpay_client.order.create(dict(amount=amount, currency=currency, payment_capture='0'))
         # order id of newly created order.
@@ -33,6 +33,7 @@ def add_money(request):
         context['razorpay_amount'] = amount
         context['currency'] = currency
         context['callback_url'] = callback_url
+        context['amrs'] = amountrs
     
         return render(request, 'payments/add.html', context=context)
     return redirect('/payments/')
@@ -64,7 +65,7 @@ def paymenthandler(request):
                     old_amount=profile.wallet_bal
                     Profile.add_money(amount, profile, old_amount)
                     # render success page on successful caputre of payment
-                    return render(request, 'paymentsuccess.html')
+                    return render(request, 'payments/paymentsuccess.html')
                 except:
  
                     # if there is an error while capturing payment.
